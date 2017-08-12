@@ -22,3 +22,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Bike::class, function (Faker\Generator $faker) {
+    return [
+        'code' => $faker->numerify('###-###'),
+        'type' => $faker->word,
+        'color' => $faker->word,
+        'image' => $faker->word . '.jpg',
+        'available' => $faker->boolean
+    ];
+});
