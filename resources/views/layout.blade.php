@@ -8,9 +8,10 @@
         <title>Laravel</title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.css">
-
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
+        @include('navbar')
         <div class="flex-center position-ref full-height">
             @yield('content')
         </div>
