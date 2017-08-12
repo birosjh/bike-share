@@ -1,8 +1,10 @@
 @import '_variables';
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 html, body {
     background-color: $primary;
     color: $text-color;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .navbar {

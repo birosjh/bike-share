@@ -1,7 +1,8 @@
-html,
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);html,
 body {
   background-color: #778f9b;
   color: #000000;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .navbar {
