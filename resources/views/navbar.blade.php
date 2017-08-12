@@ -1,7 +1,7 @@
-<nav class="navbar ">
+<nav class="navbar">
     <div class="navbar-brand">
-        <a class="navbar-item">
-            <h1 class="title">Bike Sharing!</h1>
-        </a>
+        <div class="navbar-item">
+            <h1 class="title">Jitenshare</h1>
+        </div>
     </div>
 </nav>
