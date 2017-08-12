@@ -9,7 +9,7 @@ class BikeController extends Controller
 {
     public function index()
     {
-        $bikes = Bike::all();
+        $bikes = Bike::paginate(5);
         return view('bikes.index', [ 'bikes' => $bikes ]);
     }
 }

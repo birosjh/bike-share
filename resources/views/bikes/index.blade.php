@@ -1,15 +1,16 @@
 @extends('layout')
 
 @section('content')
-    <div class="content">
-        <h1>Bike Sharing!</h1>
-        <div class="columns">
-            @foreach($bikes as $bike)
-                <div class="column is-one-fifth">
-                    @include('bikes.bike')
-                </div>
-            @endforeach
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                @foreach($bikes as $bike)
+                    <div class="column is-one-fifth">
+                        @include('bikes.bike')
+                    </div>
+                @endforeach
+            </div>
+            {{ $bikes->links() }}
         </div>
-    </div>
-
+    </section>
 @endsection
