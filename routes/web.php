@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/bikes', 'BikeController@index');
+Route::get('/bikes/{bike}', 'BikeController@show');

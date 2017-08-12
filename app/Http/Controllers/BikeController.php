@@ -12,4 +12,9 @@ class BikeController extends Controller
         $bikes = Bike::paginate(5);
         return view('bikes.index', [ 'bikes' => $bikes ]);
     }
+
+    public function show(Bike $bike)
+    {
+        return view('bikes.show', [ 'bike' => $bike ]);
+    }
 }
