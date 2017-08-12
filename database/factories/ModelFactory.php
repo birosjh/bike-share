@@ -27,7 +27,7 @@ $factory->define(App\Bike::class, function (Faker\Generator $faker) {
     return [
         'code' => $faker->numerify('###-###'),
         'type' => $faker->word,
-        'color' => $faker->word,
+        'color' => $faker->safeColorName,
         'image' => $faker->word . '.jpg',
         'available' => $faker->boolean
     ];
