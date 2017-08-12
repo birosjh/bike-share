@@ -5,6 +5,9 @@ html, body {
     background-color: $primary;
     color: $text-color;
     font-family: 'Ubuntu', sans-serif;
+    a {
+        color: $text-color;
+    }
 }
 
 .navbar {

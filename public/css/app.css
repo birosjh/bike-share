@@ -5,6 +5,11 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+html a,
+body a {
+  color: #000000;
+}
+
 .navbar {
   background-color: #4a626d;
 }
