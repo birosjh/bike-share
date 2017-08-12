@@ -1,13 +1,18 @@
 html,
 body {
   background-color: #778f9b;
+  color: #000000;
 }
 
 .navbar {
   background-color: #4a626d;
 }
 
-.content {
-  padding-top: 40px;
+.navbar .title {
+  color: #ffffff;
+}
+
+.card-header {
+  background-color: #c9bc1f;
 }
 

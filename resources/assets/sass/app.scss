@@ -2,12 +2,16 @@
 
 html, body {
     background-color: $primary;
+    color: $text-color;
 }
 
 .navbar {
     background-color: $primary-dark;
+    .title {
+        color: $text-on-dark;
+    }
 }
 
-.content {
-    padding-top: 40px;
+.card-header {
+    background-color: $secondary-dark;
 }
