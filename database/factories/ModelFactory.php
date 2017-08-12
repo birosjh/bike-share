@@ -23,6 +23,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+// Creates bike models
+// Bikeモデルを作成する
 $factory->define(App\Bike::class, function (Faker\Generator $faker) {
     return [
         'code' => $faker->numerify('###-###'),
