@@ -14,7 +14,15 @@ class AvailableBikesTest extends TestCase
     function a_user_can_see_a_list_of_bikes() {
         $bike = create('App\Bike');
 
-        $response = $this->get('/bikes');
+        $response = $this->get("/bikes");
+        $response->assertSee($bike->code);
+    }
+
+    /** @test */
+    function a_user_can_view_an_individual_bike() {
+        $bike = create('App\Bike');
+
+        $response = $this->get("/bikes/{$bike->id}");
         $response->assertSee($bike->code);
     }
 }
