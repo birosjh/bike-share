@@ -42,11 +42,6 @@
                                     Rent
                                 </span>
                             </a>
-                            <a class="card-footer-item" href="#">
-                                <span>
-                                    Return
-                                </span>
-                            </a>
                         </footer>
                     </div>
                 </div>
