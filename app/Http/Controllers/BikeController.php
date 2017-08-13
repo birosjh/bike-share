@@ -19,6 +19,14 @@ class BikeController extends Controller
     // /bikes/{bike}を表示する関数
     public function show(Bike $bike)
     {
-        return view('bikes.show', [ 'bike' => $bike ]);
+        if($bike->available) {
+            return view('bikes.show', [ 'bike' => $bike ]);
+        }
+        return redirect('/bikes/unavailable');
+    }
+
+    public function unavailable()
+    {
+        return view('bikes.unavailable');
     }
 }
