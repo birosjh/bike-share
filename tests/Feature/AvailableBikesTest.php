@@ -12,7 +12,7 @@ class AvailableBikesTest extends TestCase
     use DatabaseMigrations;
     /** @test */
     function a_user_can_see_a_list_of_bikes() {
-        $bike = create('App\Bike');
+        $bike = create('App\Bike', [ 'available' => true ]);
 
         $response = $this->get("/bikes");
         $response->assertSee($bike->code);
@@ -20,7 +20,7 @@ class AvailableBikesTest extends TestCase
 
     /** @test */
     function a_user_can_view_an_individual_bike() {
-        $bike = create('App\Bike');
+        $bike = create('App\Bike', [ 'available' => true ]);
 
         $response = $this->get("/bikes/{$bike->id}");
         $response->assertSee($bike->code);
@@ -32,5 +32,13 @@ class AvailableBikesTest extends TestCase
 
         $response = $this->get('/bikes');
         $response->assertDontSee($bike->code);
+    }
+
+    /** @test */
+    function an_unavailable_bike_cannot_be_viewed() {
+        $bike = create('App\Bike', [ 'available' => false ]);
+
+        $response = $this->get("/bikes/{$bike->id}");
+        $response->assertRedirect('/bikes/unavailable');
     }
 }
