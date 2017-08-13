@@ -25,4 +25,12 @@ class AvailableBikesTest extends TestCase
         $response = $this->get("/bikes/{$bike->id}");
         $response->assertSee($bike->code);
     }
+
+    /** @test */
+    function only_available_bikes_are_visible_in_list() {
+        $bike = create('App\Bike', [ 'available' => false ]);
+
+        $response = $this->get('/bikes');
+        $response->assertDontSee($bike->code);
+    }
 }
