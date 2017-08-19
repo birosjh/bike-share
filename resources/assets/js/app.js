@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+var $ = require('jquery');
 
 window.Vue = require('vue');
 
@@ -15,8 +16,33 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
-
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        code: "",
+        notify: false,
+        message: ""
+    },
+    created: function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    },
+    methods: {
+        onSubmit: function() {
+            var url = "/bikes/" + this.code;
+            $.ajax({
+               url: url,
+               type: 'PUT',
+               data: { transaction: "return" },
+               success: function(response) {
+                 console.log(response.message);
+                 app.notify = true;
+                 app.message = response.message;
+               }
+            });
+        }
+    }
 });
