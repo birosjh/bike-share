@@ -20,3 +20,7 @@ html, body {
 .card-header {
     background-color: $secondary-dark;
 }
+
+[v-cloak] {
+  display: none;
+}

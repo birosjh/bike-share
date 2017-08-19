@@ -22,3 +22,7 @@ body a {
   background-color: #c9bc1f;
 }
 
+[v-cloak] {
+  display: none;
+}
+
