@@ -1,4 +1,4 @@
-<a href="/bikes/{{ $bike->id }}">
+<a href="/bikes/{{ $bike->code }}">
     <div class="card">
         <header class="card-header">
         <p class="card-header-title">
