@@ -22,7 +22,7 @@ class AvailableBikesTest extends TestCase
     function a_user_can_view_an_individual_bike() {
         $bike = create('App\Bike', [ 'available' => true ]);
 
-        $response = $this->get("/bikes/{$bike->id}");
+        $response = $this->get("/bikes/{$bike->code}");
         $response->assertSee($bike->code);
     }
 
@@ -39,6 +39,6 @@ class AvailableBikesTest extends TestCase
         $bike = create('App\Bike', [ 'available' => false ]);
 
         $response = $this->get("/bikes/{$bike->id}");
-        $response->assertRedirect('/bikes/unavailable');
+        $response->assertStatus(404);
     }
 }
