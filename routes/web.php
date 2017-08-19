@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/bikes', 'BikeController@index');
 Route::get('/bikes/unavailable', 'BikeController@unavailable');
 Route::get('/bikes/{bike}', 'BikeController@show');
+
+Auth::routes();
