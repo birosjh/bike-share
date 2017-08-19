@@ -11073,12 +11073,12 @@ var app = new Vue({
         });
     },
     methods: {
-        onSubmit: function onSubmit() {
+        onSubmit: function onSubmit(transaction) {
             var url = "/bikes/" + this.code;
             $.ajax({
                 url: url,
                 type: 'PUT',
-                data: { transaction: "return" },
+                data: { transaction: transaction },
                 success: function success(response) {
                     console.log(response.message);
                     app.notify = true;
