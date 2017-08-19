@@ -14,7 +14,7 @@
                     <a href="#" class="navbar-link">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
-                    <div class="navbar-dropdown">
+                    <div class="navbar-dropdown is-right">
                             <a class="navbar-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
