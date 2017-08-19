@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/bikes', 'BikeController@index');
-Route::get('/bikes/unavailable', 'BikeController@unavailable');
-Route::get('/bikes/{bike}', 'BikeController@show');
+Route::get('/', 'PagesController@index')->name('home');
+Route::get('/return', 'PagesController@return');
+Route::get('/unavailable', 'PagesController@unavailable');
+
+// Bikes Resourceful Routes
+Route::resource('bikes', 'BikeController', ['only' => [
+    'index', 'show', 'update'
+]]);
 
 Auth::routes();
