@@ -22,11 +22,13 @@ class BikeController extends Controller
         if($bike->available) {
             return view('bikes.show', [ 'bike' => $bike ]);
         }
-        return redirect('/bikes/unavailable');
+        return redirect('/unavailable');
     }
 
-    public function unavailable()
+    public function update(Request $request, Bike $bike)
     {
-        return view('bikes.unavailable');
+        $transaction = $request->input('transaction');
+        $message = $bike->$transaction();
+        return response()->json([ "message" => $message ]);
     }
 }
