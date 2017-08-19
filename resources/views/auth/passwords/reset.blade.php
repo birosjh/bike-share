@@ -1,4 +1,4 @@
-@extends('auth.wrapper')
+@extends('wrapper')
 
 @section('wrapped-content')
     <div class="panel-heading">Reset Password</div>
