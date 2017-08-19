@@ -31,12 +31,12 @@ const app = new Vue({
         });
     },
     methods: {
-        onSubmit: function() {
+        onSubmit: function(transaction) {
             var url = "/bikes/" + this.code;
             $.ajax({
                url: url,
                type: 'PUT',
-               data: { transaction: "return" },
+               data: { transaction: transaction },
                success: function(response) {
                  console.log(response.message);
                  app.notify = true;
