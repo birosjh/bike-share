@@ -24,7 +24,8 @@ const app = new Vue({
             notify: false,
             message: "",
             status: ""
-        }
+        },
+        nav: false
     },
     created: function() {
         $.ajaxSetup({
@@ -53,6 +54,9 @@ const app = new Vue({
                    app.notification.message = "There was an issue with the transaction."
                 }
             });
+        },
+        toggleNav: function() {
+            this.nav = !this.nav;
         }
     }
 });

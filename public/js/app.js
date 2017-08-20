@@ -11066,7 +11066,8 @@ var app = new Vue({
             notify: false,
             message: "",
             status: ""
-        }
+        },
+        nav: false
     },
     created: function created() {
         $.ajaxSetup({
@@ -11095,6 +11096,9 @@ var app = new Vue({
                     app.notification.message = "There was an issue with the transaction.";
                 }
             });
+        },
+        toggleNav: function toggleNav() {
+            this.nav = !this.nav;
         }
     }
 });
