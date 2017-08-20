@@ -7,7 +7,7 @@
         <div class="field">
             <label class="label">Bike Code</label>
             <div class="control">
-                <input v-model="code" class="input" type="text" placeholder="Bike Code">
+                <input v-model="code" class="input" type="text" placeholder="Bike Code" required>
             </div>
         </div>
         <div class="field is-grouped">
