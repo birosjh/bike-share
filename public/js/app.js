@@ -11062,8 +11062,11 @@ var app = new Vue({
     el: '#app',
     data: {
         code: "",
-        notify: false,
-        message: ""
+        notification: {
+            notify: false,
+            message: "",
+            status: ""
+        }
     },
     created: function created() {
         $.ajaxSetup({
@@ -11073,16 +11076,23 @@ var app = new Vue({
         });
     },
     methods: {
-        onSubmit: function onSubmit(transaction) {
-            var url = "/bikes/" + this.code;
+        onSubmit: function onSubmit(transaction, code) {
+            var url = "/bikes/" + code;
+
             $.ajax({
                 url: url,
                 type: 'PUT',
                 data: { transaction: transaction },
                 success: function success(response) {
                     console.log(response.message);
-                    app.notify = true;
-                    app.message = response.message;
+                    app.notification.notify = true;
+                    app.notification.status = "is-success";
+                    app.notification.message = response.message;
+                },
+                error: function error(response) {
+                    app.notification.notify = true;
+                    app.notification.status = "is-danger";
+                    app.notification.message = "There was an issue with the transaction.";
                 }
             });
         }

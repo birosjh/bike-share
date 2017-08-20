@@ -20,8 +20,11 @@ const app = new Vue({
     el: '#app',
     data: {
         code: "",
-        notify: false,
-        message: ""
+        notification: {
+            notify: false,
+            message: "",
+            status: ""
+        }
     },
     created: function() {
         $.ajaxSetup({
@@ -31,17 +34,24 @@ const app = new Vue({
         });
     },
     methods: {
-        onSubmit: function(transaction) {
-            var url = "/bikes/" + this.code;
+        onSubmit: function(transaction, code) {
+            var url = "/bikes/" + code;
+
             $.ajax({
                url: url,
                type: 'PUT',
                data: { transaction: transaction },
                success: function(response) {
-                 console.log(response.message);
-                 app.notify = true;
-                 app.message = response.message;
-               }
+                   console.log(response.message);
+                   app.notification.notify = true;
+                   app.notification.status = "is-success"
+                   app.notification.message = response.message;
+                },
+                error: function(response) {
+                   app.notification.notify = true;
+                   app.notification.status = "is-danger";
+                   app.notification.message = "There was an issue with the transaction."
+                }
             });
         }
     }
