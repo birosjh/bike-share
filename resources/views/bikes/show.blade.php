@@ -5,6 +5,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-10 is-offset-1">
+                    @include('components.notification')
                     <div class="show card">
                         <header class="card-header">
                             <p class="card-header-title">
@@ -37,9 +38,9 @@
                             </div>
                         </div>
                         <footer class="card-footer">
-                            <a class="card-footer-item" href="#">
+                            <a v-on:click="onSubmit('checkout', {{ json_encode($bike->code) }})" class="card-footer-item" href="#">
                                 <span>
-                                    Rent
+                                    Rent {{ $bike->code }}
                                 </span>
                             </a>
                         </footer>

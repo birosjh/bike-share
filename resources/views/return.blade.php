@@ -2,10 +2,8 @@
 
 @section('wrapped-content')
     <div class="title is-2">Return</div>
-    <div v-show="notify" class="notification is-success" v-cloak>
-        @{{ message }}
-    </div>
-    <form v-on:submit.prevent="onSubmit('return')" action="/bikes" method="POST">
+    @include('components.notification')
+    <form v-on:submit.prevent="onSubmit('return', code)" action="/bikes" method="POST">
         <div class="field">
             <label class="label">Bike Code</label>
             <div class="control">
@@ -14,7 +12,6 @@
         </div>
         <div class="field is-grouped">
             <div class="control">
-
                 <button class="button">Submit</button>
             </div>
         </div>
