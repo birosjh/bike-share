@@ -1,3 +1,3 @@
-<div v-show="notify" class="notification is-success" v-cloak>
-    @{{ message }}
+<div v-show="notification.notify" class="notification" :class="notification.status" v-cloak>
+    @{{ notification.message }}
 </div>
