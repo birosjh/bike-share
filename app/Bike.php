@@ -17,7 +17,7 @@ class Bike extends Model
            return "This bike is not currently checked out";
        }
        $this->available = true;
-       //$this->save();
+       $this->save();
        return 'Thank you.  Your bike has been returned.';
    }
 
@@ -27,7 +27,7 @@ class Bike extends Model
            return "This bike is not currently available";
        }
        $this->available = false;
-       //$this->save();
+       $this->save();
        return 'Thank you for using our bikes!';
    }
 }
