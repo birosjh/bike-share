@@ -6,7 +6,12 @@ use App\Bike;
 use Illuminate\Http\Request;
 
 class BikeController extends Controller
-{
+{    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // Shows the /bikes page
     // /bikesページを表示する関数
     public function index()
